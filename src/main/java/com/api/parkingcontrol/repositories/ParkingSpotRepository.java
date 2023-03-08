@@ -13,7 +13,11 @@ import com.api.parkingcontrol.models.ParkingSpotModel;
  * Interface responsavel por transacoes com banco de dados extendendo do JpaRepository
  * possuindo metodos ja prontos. E um bean do Spring
  */
-@Repository
-public interface ParkingSpotRespository extends JpaRepository<ParkingSpotModel, UUID> {
 
+@Repository
+public interface ParkingSpotRepository extends JpaRepository<ParkingSpotModel, UUID> {
+
+	boolean existsByLicensePlateCar(String licensePlateCar);
+	boolean existsByParkingSpotNumber(String parkingSpotNumber);
+	boolean existsByApartmentAndBlock(String apartment, String block);
 }
